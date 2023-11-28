@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package addDemand;
+
+option go_package = ".;";
+service EcommerceService {
+    rpc MakeDemand(DemandRequest) returns (DemandResponse);
+}
+
+message DemandRequest {
+    string product_name = 1;
+    int32 quantity = 2;
+}
+
+message DemandResponse {
+    bool success = 1;
+    string message = 2;
+}

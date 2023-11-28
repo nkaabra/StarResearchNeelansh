@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package listDemand;
+
+option go_package = ".;";
+
+service DemandListingService {
+    // ListDemands returns a list of current customer demands.
+    rpc ListDemands(ListDemandsRequest) returns (ListDemandsResponse);
+}
+
+message ListDemandsRequest {
+}
+
+message DemandInfo {
+    string product_name = 1;
+    int32 quantity = 2;
+}
+
+message ListDemandsResponse {
+    // List of current customer demands.
+    repeated DemandInfo demands = 1;
+}
