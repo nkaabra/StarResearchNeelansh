@@ -1,5 +1,4 @@
 # StarResearchNeelansh
-A small e-commerce application using micro services 
 
 # E-commerce Microservices Application in Go
 
@@ -14,3 +13,9 @@ Welcome to the E-commerce Microservices Application, a project built using Golan
 - **Protocol Buffers:** The use of protocol buffers provides a language-agnostic data serialization format, optimizing data exchange between microservices.
 
 The structure of the directory consists of smallers directories for each microservice, along with a trimmed.CSV file containing a real world dataset obtained from Kaggle, trimmed for our specific needs.
+
+Each smaller directory for the microservices contains a folder with the proto files (protocol buffers) such as the .proto file defining the semantics, along with the generated grpc-proto files.
+
+## Starting the Application
+
+
