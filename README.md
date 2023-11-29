@@ -55,3 +55,4 @@ ghz -n 1000 -c 10 --insecure --proto=inventory.proto --call=Inventory.InventoryS
 
 
 
+
