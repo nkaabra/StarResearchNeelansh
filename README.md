@@ -52,6 +52,64 @@ ghz -n 1000 -c 10 --insecure --proto=demand.proto --call=addDemand.EcommerceServ
 
 ghz -n 1000 -c 10 --insecure --proto=inventory.proto --call=Inventory.InventoryService.AddInventory --data '{"seller_product": {"stockCode": "ABC123", "name": "ProductA", "quantity": 10, "price": 50.0}}' localhost:50051
 
+## Using Cloudlab
+
+After instantiating an experiment, and ssh'ing into a cloudLab node, please follow the following steps:
+
+(1) sudo apt update
+(2) sudo apt install apt-transport-https ca-certificates curl software-properties-common
+(3) curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+(4) echo "deb [signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+(5) sudo apt update
+(6) sudo apt install docker-ce docker-ce-cli containerd.io
+(7) sudo usermod -aG docker $USER
+(8) sudo docker login
+(9) Enter username and password
+(10) sudo docker pull nkaabra/myecommerceapp:latest
+(11) sudo docker run nkaabra/myecommerceapp:latest & 
+(12) ip addr show (run this on the cloudlab machine)
+Running the command above will provide you with details regarding the IP addresses being used. 
+(13) Find the IP Address from the terminal output 
+
+Sample output: 
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eno1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether ec:b1:d7:85:4a:62 brd ff:ff:ff:ff:ff:ff
+    altname enp9s0
+   # inet 128.110.217.103/21 metric 1024 brd 128.110.223.255 scope global eno1
+       valid_lft forever preferred_lft forever
+    inet6 fe80::eeb1:d7ff:fe85:4a62/64 scope link 
+       valid_lft forever preferred_lft forever
+3: eno1d1: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN group default qlen 1000
+    link/ether ec:b1:d7:85:4a:63 brd ff:ff:ff:ff:ff:ff
+    altname enp9s0d1
+4: docker0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default 
+    link/ether 02:42:74:fa:5c:35 brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::42:74ff:fefa:5c35/64 scope link 
+       valid_lft forever preferred_lft forever
+12: vethaf2f5c0@if11: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master docker0 state UP group default 
+    link/ether 6e:9a:21:09:26:04 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet6 fe80::6c9a:21ff:fe09:2604/64 scope link 
+       valid_lft forever preferred_lft forever
+
+
+The bolded line contains the IP: 128.110.217.103
+You can now use the public IP Address to interact with the application
+For eg: 172.17.0.1 
+
+(13) grpcurl -plaintext -d '{"product_name": "A", "quantity": 5}' 172.17.0.1:50051 addDemand.EcommerceService/MakeDemand
+
+
+
+
+
 
 
 
