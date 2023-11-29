@@ -12,3 +12,5 @@ Welcome to the E-commerce Microservices Application, a project built using Golan
 - **gRPC Communication:** Leveraging gRPC for communication between microservices ensures efficient and language-agnostic communication, enhancing the modularity of the system.
 
 - **Protocol Buffers:** The use of protocol buffers provides a language-agnostic data serialization format, optimizing data exchange between microservices.
+
+The structure of the directory consists of smallers directories for each microservice, along with a trimmed.CSV file containing a real world dataset obtained from Kaggle, trimmed for our specific needs.
