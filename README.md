@@ -17,5 +17,5 @@ The structure of the directory consists of smallers directories for each microse
 Each smaller directory for the microservices contains a folder with the proto files (protocol buffers) such as the .proto file defining the semantics, along with the generated grpc-proto files.
 
 ## Starting the Application
-
+To
 
