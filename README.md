@@ -56,19 +56,19 @@ ghz -n 1000 -c 10 --insecure --proto=inventory.proto --call=Inventory.InventoryS
 
 After instantiating an experiment, and ssh'ing into a cloudLab node, please follow the following steps:
 
-(1) sudo apt update
-(2) sudo apt install apt-transport-https ca-certificates curl software-properties-common
-(3) curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-(4) echo "deb [signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-(5) sudo apt update
-(6) sudo apt install docker-ce docker-ce-cli containerd.io
-(7) sudo usermod -aG docker $USER
-(8) sudo docker login
-(9) Enter username and password
-(10) sudo docker pull nkaabra/myecommerceapp:latest
-(11) sudo docker run nkaabra/myecommerceapp:latest & 
-(12) ip addr show (run this on the cloudlab machine)
-Running the command above will provide you with details regarding the IP addresses being used. 
+(1) sudo apt update <br />
+(2) sudo apt install apt-transport-https ca-certificates curl software-properties-common <br />
+(3) curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg <br />
+(4) echo "deb [signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null <br />
+(5) sudo apt update <br />
+(6) sudo apt install docker-ce docker-ce-cli containerd.io <br />
+(7) sudo usermod -aG docker $USER <br />
+(8) sudo docker login <br />
+(9) Enter username and password <br />
+(10) sudo docker pull nkaabra/myecommerceapp:latest <br />
+(11) sudo docker run nkaabra/myecommerceapp:latest & <br />
+(12) ip addr show (run this on the cloudlab machine) <br />
+Running the command above will provide you with details regarding the IP addresses being used. <br />
 (13) Find the IP Address from the terminal output 
 
 Sample output: 
