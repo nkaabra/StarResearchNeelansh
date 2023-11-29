@@ -66,7 +66,7 @@ After instantiating an experiment, and ssh'ing into a cloudLab node, please foll
 (8) sudo docker login <br />
 (9) Enter username and password <br />
 (10) sudo docker pull nkaabra/myecommerceapp:latest <br />
-(11) sudo docker run nkaabra/myecommerceapp:latest & <br />
+(11) sudo docker run -p 50051:50051 nkaabra/myecommerceapp:latest & <br />
 (12) ip addr show (run this on the cloudlab machine) <br />
 Running the command above will provide you with details regarding the IP addresses being used. <br />
 (13) Find the IP Address from the terminal output 
