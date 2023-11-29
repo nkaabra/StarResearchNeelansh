@@ -81,7 +81,7 @@ Sample output:
 2: eno1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
     link/ether ec:b1:d7:85:4a:62 brd ff:ff:ff:ff:ff:ff
     altname enp9s0
-   # inet 128.110.217.103/21 metric 1024 brd 128.110.223.255 scope global eno1
+   ### inet 128.110.217.103/21 metric 1024 brd 128.110.223.255 scope global eno1
        valid_lft forever preferred_lft forever
     inet6 fe80::eeb1:d7ff:fe85:4a62/64 scope link 
        valid_lft forever preferred_lft forever
